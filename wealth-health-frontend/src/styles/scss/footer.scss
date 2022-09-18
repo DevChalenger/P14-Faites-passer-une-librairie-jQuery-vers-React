@@ -1,8 +1,10 @@
 @import "color.scss";
 .app-footer {
   background-color: $Third-color;
+  margin-top: auto;
   padding: 1em 2em;
   display: flex;
+  justify-self: flex-end;
   justify-content: center;
   box-shadow: 0px 0px 5px 0.1px black;
   .app-footer-copyright {

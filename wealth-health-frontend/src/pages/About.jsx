@@ -1,3 +1,5 @@
-function About() {}
+function About() {
+  return <main></main>;
+}
 
 export default About;

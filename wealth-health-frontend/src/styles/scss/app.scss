@@ -1,6 +1,17 @@
+@font-face {
+  font-family: Oswald;
+  src: url("../../assets/fonts/Oswald-Regular.ttf");
+}
+
 .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  font-family: Oswald;
+  scroll-behavior: smooth;
+  .main-container {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+  }
 }

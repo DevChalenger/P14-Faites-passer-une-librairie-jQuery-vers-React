@@ -1,0 +1,13 @@
+@import "color.scss";
+.app-footer {
+  background-color: $Third-color;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 5px 0.1px black;
+  .app-footer-copyright {
+    color: $Second-color;
+    font-size: 17px;
+    font-weight: bold;
+  }
+}

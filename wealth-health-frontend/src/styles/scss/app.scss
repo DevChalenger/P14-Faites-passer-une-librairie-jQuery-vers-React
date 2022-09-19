@@ -1,3 +1,5 @@
+@import "color.scss";
+
 @font-face {
   font-family: Oswald;
   src: url("../../assets/fonts/Oswald-Regular.ttf");
@@ -9,6 +11,7 @@
   flex-direction: column;
   font-family: Oswald;
   scroll-behavior: smooth;
+  background-color: $Fourth-color;
   .main-container {
     padding: 2em;
     display: flex;

@@ -1,13 +1,19 @@
 import AdressInformation from "./FormComponents/Address";
-import Department from "./FormComponents/Department";
+import Button from "./FormComponents/Button";
 import PrincipalInformation from "./FormComponents/Principal";
 
 function Form() {
   return (
-    <form action="POST" id="create-employee" className="new-employee-form">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+      id="create-employee"
+      className="new-employee-form"
+    >
       <PrincipalInformation />
       <AdressInformation />
-      <Department />
+      <Button />
     </form>
   );
 }

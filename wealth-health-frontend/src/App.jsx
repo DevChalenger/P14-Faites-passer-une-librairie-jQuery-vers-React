@@ -12,19 +12,23 @@ import Home from "./pages/Home";
 import NewEmployee from "./pages/NewEmployee";
 import "./styles/css/app.css";
 
+import { HelmetProvider, Helmet } from "react-helmet-async";
+
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header />
-        <Navigation>
-          <Route path="/" element={<Home />} />
-          <Route path="/new-employee" element={<NewEmployee />} />
-          <Route path="/current-employees" element={<CurrentEmployees />} />
-          <Route path="/about" element={<About />} />
-        </Navigation>
-        <Footer />
-      </Router>
+      <HelmetProvider>
+        <Router>
+          <Header />
+          <Navigation>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/new-employee" element={<NewEmployee />} />
+            <Route path="/current-employees" element={<CurrentEmployees />} />
+            <Route path="/about" element={<About />} />
+          </Navigation>
+          <Footer />
+        </Router>
+      </HelmetProvider>
     </div>
   );
 }

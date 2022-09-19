@@ -1,3 +1,5 @@
+import departmentData from "../../__mock__/data_department.json";
+
 function Principal() {
   return (
     <div className="principal-information information-container">
@@ -16,6 +18,14 @@ function Principal() {
       <div className="field-block">
         <label htmlFor="start-date">Start Date</label>
         <input id="start-date" type="text" />
+      </div>
+      <div className="field-block">
+        <label htmlFor="department">Department</label>
+        <select name="department" id="department">
+          {departmentData.map((department) => (
+            <option key={department.name}>{department.name}</option>
+          ))}
+        </select>
       </div>
     </div>
   );

@@ -1,5 +1,11 @@
+import TitlePage from "../utils/TitlePage";
+
 function About() {
-  return <main></main>;
+  return (
+    <main>
+      <TitlePage title="About" />
+    </main>
+  );
 }
 
 export default About;

@@ -8,6 +8,7 @@
   flex-direction: column;
   font-family: Oswald;
   scroll-behavior: smooth;
+  background-color: #b1c46c;
 }
 .App .main-container {
   padding: 2em;

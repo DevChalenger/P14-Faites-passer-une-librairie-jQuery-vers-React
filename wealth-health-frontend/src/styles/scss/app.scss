@@ -11,10 +11,13 @@
   flex-direction: column;
   font-family: Oswald;
   scroll-behavior: smooth;
-  background-color: $Fourth-color;
+  background: linear-gradient(180deg, $Fourth-color, $Primary-color);
   .main-container {
     padding: 2em;
     display: flex;
     justify-content: center;
+  }
+  button {
+    cursor: pointer;
   }
 }

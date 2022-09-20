@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import TitlePage from "../utils/TitlePage";
 
 function Home() {
@@ -9,7 +10,10 @@ function Home() {
           Welcome to HRnet! This is our company's internal application to create
           and view employee records.
         </h1>
-        <p>If you want to join our company </p>
+        <p>
+          If you want to join our company follow that link{" "}
+          <Link to="/new-employee"> New employee</Link>
+        </p>
       </section>
     </main>
   );

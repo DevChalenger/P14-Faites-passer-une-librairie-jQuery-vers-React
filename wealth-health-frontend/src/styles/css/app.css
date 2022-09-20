@@ -8,10 +8,13 @@
   flex-direction: column;
   font-family: Oswald;
   scroll-behavior: smooth;
-  background-color: #b1c46c;
+  background: linear-gradient(180deg, #b1c46c, #93ad18);
 }
 .App .main-container {
   padding: 2em;
   display: flex;
   justify-content: center;
+}
+.App button {
+  cursor: pointer;
 }

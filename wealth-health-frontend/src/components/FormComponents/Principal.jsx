@@ -1,20 +1,50 @@
 import departmentData from "../../__mock__/data_department.json";
 
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
+
 function Principal() {
   return (
-    <div className="principal-information information-container">
-      <div className="field-block">
-        <label htmlFor="first-name">First Name</label>
-        <input type="text" id="first-name" />
-      </div>
-      <div className="field-block">
-        <label htmlFor="last-name">Last Name</label>
-        <input type="text" id="last-name" />
-      </div>
-      <div className="field-block">
-        <label htmlFor="date-of-birth">Date of Birth</label>
-        <input id="date-of-birth" type="text" />
-      </div>
+    <fieldset className="principal-information information-container">
+      <legend>Principal</legend>
+      <Box sx={{ minWidth: 120, maxWidth: 190 }} className="field-block">
+        <FormControl className="form-control">
+          <TextField
+            type="text"
+            label="First Name"
+            size="small"
+            required
+            className="first-name"
+            id="outlined-required"
+          />
+        </FormControl>
+      </Box>
+      <Box sx={{ minWidth: 120, maxWidth: 190 }} className="field-block">
+        <FormControl className="form-control">
+          <TextField
+            type="text"
+            label="Last Name"
+            className="last-name"
+            size="small"
+            required
+            id="outlined-required"
+          />
+        </FormControl>
+      </Box>
+      <Box sx={{ minWidth: 120, maxWidth: 190 }} className="field-block">
+        <FormControl className="form-control">
+          <TextField
+            type="text"
+            label="Date of Birth"
+            size="small"
+            className="date-of-birth"
+            required
+            id="outlined-required"
+          />
+        </FormControl>
+      </Box>
+
       <div className="field-block">
         <label htmlFor="start-date">Start Date</label>
         <input id="start-date" type="text" />
@@ -27,7 +57,7 @@ function Principal() {
           ))}
         </select>
       </div>
-    </div>
+    </fieldset>
   );
 }
 

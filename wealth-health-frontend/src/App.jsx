@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import NewEmployee from "./pages/NewEmployee";
 import "./styles/css/app.css";
 
-import { HelmetProvider, Helmet } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (

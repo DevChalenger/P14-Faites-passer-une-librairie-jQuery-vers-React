@@ -1,10 +1,10 @@
-import { useForm } from "react-hook-form";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
+import { Button } from "@mui/material";
 
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -16,16 +16,23 @@ import stateData from "../__mock__/data_state.json";
 import departmentData from "../__mock__/data_department.json";
 
 import { useState } from "react";
-import { Button } from "@mui/material";
+import { Controller, useForm } from "react-hook-form";
 
 function Form() {
-  const { register, handleSubmit, reset } = useForm();
-
+  const { register, handleSubmit, reset, control } = useForm();
+  //Form State
   const [selectedState, setSelectedState] = useState("");
   const [selectedDateBirth, setSelectedDateBirth] = useState(dayjs());
   const [selectedDateStart, setSelectedDateStart] = useState(dayjs());
   const [selectedDepartment, setSelectedDepartment] = useState("");
 
+  const resetForm = () => {
+    reset();
+    setSelectedState("");
+    setSelectedDepartment("");
+    setSelectedDateBirth(dayjs());
+    setSelectedDateStart(dayjs());
+  };
   const handleChangeDateStart = (value) => {
     setSelectedDateStart(value);
   };
@@ -56,14 +63,12 @@ function Form() {
           <legend>Principal</legend>
 
           <TextField
-            error
             type="text"
             label="First Name"
             size="small"
             className="form-control"
             required
             id="first-name"
-            inputProps={{ pattern: "[a-z]{1,25}" }}
             {...register("firstName")}
           />
 
@@ -167,8 +172,30 @@ function Form() {
               {...register("city")}
             />
           </FormControl>
+          <Controller
+            required
+            name="state"
+            defaultValue={""}
+            control={control}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                select
+                className="form-select"
+                size="small"
+                label="StateTest"
+                id="street"
+              >
+                {stateData.map((state) => (
+                  <MenuItem value={state.abbreviation} key={state.abbreviation}>
+                    {state.name}
+                  </MenuItem>
+                ))}
+              </TextField>
+            )}
+          />
 
-          <FormControl required fullWidth className="form-control">
+          <FormControl required className="form-control">
             <InputLabel
               id="state-select-label"
               className="form-label"
@@ -212,7 +239,7 @@ function Form() {
             className="button-cancel button-form"
             onClick={(e) => {
               e.preventDefault();
-              reset();
+              resetForm();
             }}
           >
             Cancel

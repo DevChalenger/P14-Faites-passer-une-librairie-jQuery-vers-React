@@ -11,7 +11,7 @@
   flex-direction: column;
   font-family: Oswald;
   scroll-behavior: smooth;
-  background: linear-gradient(180deg, $Fourth-color, $Primary-color);
+  background: linear-gradient(180deg, $Second-color, $Primary-color);
   .main-container {
     padding: 2em;
     display: flex;
@@ -22,5 +22,17 @@
   }
   label {
     display: block;
+  }
+  .light-theme {
+    background-color: $Light-Background;
+  }
+  .light-content {
+    color: $Light-Content;
+  }
+  .dark-theme {
+    background-color: $Dark-Background;
+  }
+  .dark-content {
+    color: $Dark-Content;
   }
 }

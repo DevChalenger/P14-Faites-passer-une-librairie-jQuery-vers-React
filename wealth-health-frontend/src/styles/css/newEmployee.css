@@ -3,8 +3,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #efefef;
-  color: #5a6f08;
   padding: 2em 3em;
   border-radius: 0.3em;
   box-shadow: 0px 0px 5px 0.1px black;
@@ -32,9 +30,14 @@
 .new-employee-container .new-employee-section .new-employee-form .information-container .form-control input,
 .new-employee-container .new-employee-section .new-employee-form .information-container .form-control .form-select,
 .new-employee-container .new-employee-section .new-employee-form .information-container .form-control button {
-  background-color: white;
+  background-color: white !important;
   border-radius: 0.2em;
   box-shadow: 0px 0px 1px 0px black;
+}
+.new-employee-container .new-employee-section .new-employee-form .information-container .form-control input .MuiSelect-select,
+.new-employee-container .new-employee-section .new-employee-form .information-container .form-control .form-select .MuiSelect-select,
+.new-employee-container .new-employee-section .new-employee-form .information-container .form-control button .MuiSelect-select {
+  background-color: white;
 }
 .new-employee-container .new-employee-section .new-employee-form .button-container {
   display: flex;
@@ -45,7 +48,6 @@
 }
 .new-employee-container .new-employee-section .new-employee-form .button-container .button-form {
   background-color: #b1c46c;
-  color: #efefef;
   border: 0.5px solid rgba(0, 0, 0, 0.2509803922);
   width: 120px;
   padding: 0.5em 1.5em;

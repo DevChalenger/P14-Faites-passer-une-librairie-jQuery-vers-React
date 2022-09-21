@@ -1,6 +1,5 @@
 .app-header {
   display: grid;
-  background-color: #efefef;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding: 0.5em 2em;
@@ -22,10 +21,8 @@
 }
 .app-header .app-header-nav .app-nav-items-container .app-nav-item .app-nav-item-link {
   text-decoration: none;
-  color: #93ad18;
   font-weight: bold;
-  transition: color 1s;
 }
 .app-header .app-header-nav .app-nav-items-container .app-nav-item .app-nav-item-link:hover {
-  color: #5a6f08;
+  text-decoration: underline;
 }

@@ -1,5 +1,4 @@
 .app-footer {
-  background-color: #efefef;
   margin-top: auto;
   padding: 1em 2em;
   display: flex;
@@ -8,7 +7,6 @@
   box-shadow: 0px 0px 5px 0.1px black;
 }
 .app-footer .app-footer-copyright {
-  color: #5a6f08;
   font-size: 17px;
   font-weight: bold;
 }

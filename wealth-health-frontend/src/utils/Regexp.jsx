@@ -1,43 +1,39 @@
-import { useState } from "react";
-
 const RegExp = () => {
-  const [value, setValue] = useState("");
-
   const firstName = {
     error: () => {},
-    errorMessage: "The first name must be a string",
+    errorMessage: "First name must be a string",
   };
   const lastName = {
     error: () => {},
-    errorMessage: "The last name must be a string",
+    errorMessage: "Last name must be a string",
   };
   const dateOfBirth = {
     error: () => {},
-    errorMessage: "",
+    errorMessage: "Date of birth must be in date format",
   };
   const startDate = {
     error: () => {},
-    errorMessage: "",
+    errorMessage: "Start date must be in date format",
   };
   const department = {
     error: () => {},
-    errorMessage: "",
+    errorMessage: "Department must be selected",
   };
   const street = {
     error: () => {},
-    errorMessage: "",
+    errorMessage: "Street must be in correct format",
   };
   const city = {
     error: () => {},
-    errorMessage: "",
+    errorMessage: "City must be a string",
   };
   const state = {
     error: () => {},
-    errorMessage: "",
+    errorMessage: "State must be selected",
   };
   const zipCode = {
     error: () => {},
-    errorMessage: "",
+    errorMessage: "ZipCode must be a number",
   };
 
   return {

@@ -2,7 +2,7 @@
 
 .app-header {
   display: grid;
-  background-color: $Third-color;
+
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   padding: 0.5em 2em;
@@ -24,11 +24,10 @@
       .app-nav-item {
         .app-nav-item-link {
           text-decoration: none;
-          color: $Primary-color;
+
           font-weight: bold;
-          transition: color 1s;
           &:hover {
-            color: $Second-color;
+            text-decoration: underline;
           }
         }
       }

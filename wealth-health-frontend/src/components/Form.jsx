@@ -16,6 +16,7 @@ import stateData from "../__mock__/data_state.json";
 import departmentData from "../__mock__/data_department.json";
 
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 function Form() {
   const { register, handleSubmit, reset } = useForm();
@@ -54,27 +55,27 @@ function Form() {
         <fieldset className="principal-information information-container">
           <legend>Principal</legend>
 
-          <FormControl className="form-control">
-            <TextField
-              type="text"
-              label="First Name"
-              size="small"
-              required
-              id="first-name"
-              {...register("firstName")}
-            />
-          </FormControl>
+          <TextField
+            error
+            type="text"
+            label="First Name"
+            size="small"
+            className="form-control"
+            required
+            id="first-name"
+            inputProps={{ pattern: "[a-z]{1,25}" }}
+            {...register("firstName")}
+          />
 
-          <FormControl className="form-control">
-            <TextField
-              type="text"
-              label="Last Name"
-              size="small"
-              required
-              id="last-name"
-              {...register("lastName")}
-            />
-          </FormControl>
+          <TextField
+            type="text"
+            label="Last Name"
+            size="small"
+            className="form-control"
+            required
+            id="last-name"
+            {...register("lastName")}
+          />
 
           <FormControl className="form-control">
             <DesktopDatePicker
@@ -204,8 +205,10 @@ function Form() {
           </FormControl>
         </fieldset>
         <Box className="button-container">
-          <button className="button-submit button-form">Save</button>
-          <button
+          <Button className="button-submit button-form" type="submit">
+            Save
+          </Button>
+          <Button
             className="button-cancel button-form"
             onClick={(e) => {
               e.preventDefault();
@@ -213,7 +216,7 @@ function Form() {
             }}
           >
             Cancel
-          </button>
+          </Button>
         </Box>
       </LocalizationProvider>
     </form>

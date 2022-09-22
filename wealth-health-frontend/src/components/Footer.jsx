@@ -11,6 +11,7 @@ function Footer() {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const { backgroundTheme, contentTheme } = Theme();
+
   return (
     <footer className={`app-footer ${backgroundTheme} ${contentTheme}`}>
       <p className="app-footer-copyright">Copyright © 2022 Wealth Health</p>

@@ -5,6 +5,7 @@ import TitlePage from "../utils/TitlePage";
 
 function NewEmployee() {
   const { backgroundTheme, contentTheme } = Theme();
+
   return (
     <main className="new-employee-container main-container">
       <TitlePage title="New Employee" />

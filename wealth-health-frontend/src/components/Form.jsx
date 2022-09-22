@@ -1,9 +1,7 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
 import { Button } from "@mui/material";
 
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
@@ -21,15 +19,12 @@ import { Controller, useForm } from "react-hook-form";
 function Form() {
   const { register, handleSubmit, reset, control } = useForm();
   //Form State
-  const [selectedState, setSelectedState] = useState("");
+
   const [selectedDateBirth, setSelectedDateBirth] = useState(dayjs());
   const [selectedDateStart, setSelectedDateStart] = useState(dayjs());
-  const [selectedDepartment, setSelectedDepartment] = useState("");
 
   const resetForm = () => {
     reset();
-    setSelectedState("");
-    setSelectedDepartment("");
     setSelectedDateBirth(dayjs());
     setSelectedDateStart(dayjs());
   };
@@ -39,13 +34,6 @@ function Form() {
 
   const handleChangeDateBirth = (value) => {
     setSelectedDateBirth(value);
-  };
-
-  const handleChangeState = (event) => {
-    setSelectedState(event.target.value);
-  };
-  const handleChangeDepatment = (event) => {
-    setSelectedDepartment(event.target.value);
   };
 
   const submitForm = (data) => {
@@ -123,28 +111,29 @@ function Form() {
           </FormControl>
 
           <FormControl required fullWidth className="form-control">
-            <InputLabel
-              id="department-select-label"
-              className="form-label"
-              size="small"
-            >
-              Department
-            </InputLabel>
-            <Select
-              labelId="department-select-label"
-              id="department-select"
-              size="small"
-              className="form-select"
-              value={selectedDepartment}
-              label="Department *"
-              onChange={handleChangeDepatment}
-            >
-              {departmentData.map((state) => (
-                <MenuItem value={state.name} key={state.name}>
-                  {state.name}
-                </MenuItem>
-              ))}
-            </Select>
+            <Controller
+              name="department"
+              defaultValue=""
+              className="form-control"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  select
+                  size="small"
+                  label="Department"
+                  id="departmenet"
+                  className="form-select"
+                  required
+                >
+                  {departmentData.map((state) => (
+                    <MenuItem value={state.name} key={state.name}>
+                      {state.name}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              )}
+            />
           </FormControl>
         </fieldset>
         {/*Address Section*/}
@@ -172,52 +161,34 @@ function Form() {
               {...register("city")}
             />
           </FormControl>
-          <Controller
-            required
-            name="state"
-            defaultValue={""}
-            control={control}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                select
-                className="form-select"
-                size="small"
-                label="StateTest"
-                id="street"
-              >
-                {stateData.map((state) => (
-                  <MenuItem value={state.abbreviation} key={state.abbreviation}>
-                    {state.name}
-                  </MenuItem>
-                ))}
-              </TextField>
-            )}
-          />
-
-          <FormControl required className="form-control">
-            <InputLabel
-              id="state-select-label"
-              className="form-label"
-              size="small"
-            >
-              State
-            </InputLabel>
-            <Select
-              labelId="state-select-label"
-              id="state-select"
-              size="small"
-              className="form-select"
-              value={selectedState}
-              label="State *"
-              onChange={handleChangeState}
-            >
-              {stateData.map((state) => (
-                <MenuItem value={state.abbreviation} key={state.abbreviation}>
-                  {state.name}
-                </MenuItem>
-              ))}
-            </Select>
+          <FormControl className="form-control">
+            <Controller
+              required
+              name="state"
+              defaultValue=""
+              className="form-control"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  select
+                  size="small"
+                  label="State"
+                  id="street"
+                  className="form-select"
+                  required
+                >
+                  {stateData.map((state) => (
+                    <MenuItem
+                      value={state.abbreviation}
+                      key={state.abbreviation}
+                    >
+                      {state.name}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              )}
+            />
           </FormControl>
 
           <FormControl className="form-control">

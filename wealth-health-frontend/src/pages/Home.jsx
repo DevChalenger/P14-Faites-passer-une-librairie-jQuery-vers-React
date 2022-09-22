@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import TitlePage from "../utils/TitlePage";
-
+import Theme from "../utils/Theme";
 function Home() {
+  const { backgroundTheme, contentTheme } = Theme();
   return (
     <main className="main-container home-container">
       <TitlePage title="Home" />
-      <section>
+      <section className={`${backgroundTheme} ${contentTheme}`}>
         <h1>
           Welcome to HRnet! This is our company's internal application to create
           and view employee records.

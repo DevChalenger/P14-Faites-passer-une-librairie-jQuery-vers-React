@@ -14,10 +14,16 @@ import stateData from "../__mock__/data_state.json";
 import departmentData from "../__mock__/data_department.json";
 
 import { useState } from "react";
+
 import { Controller, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createEmployee } from "../redux/features/actions/employee";
 
 function Form() {
   const { register, handleSubmit, reset, control } = useForm();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   //Form State
 
   const [selectedDateBirth, setSelectedDateBirth] = useState(dayjs());
@@ -37,7 +43,7 @@ function Form() {
   };
 
   const submitForm = (data) => {
-    console.log(data);
+    dispatch(createEmployee(data));
   };
 
   return (
@@ -174,7 +180,7 @@ function Form() {
                   select
                   size="small"
                   label="State"
-                  id="street"
+                  id="state"
                   className="form-select"
                   required
                 >

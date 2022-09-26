@@ -18,6 +18,7 @@ function Footer() {
       <IconButton
         onClick={() => dispatch(themeActions.toggle())}
         className={`${contentTheme}`}
+        aria-label="Toggle Theme Mode"
       >
         {theme === "light" ? <DarkMode /> : <LightMode />}
       </IconButton>

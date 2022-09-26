@@ -7,8 +7,16 @@ function Header() {
 
   return (
     <header className={`app-header ${backgroundTheme}`}>
-      <div className="app-header-logo">
-        <img src={Logo} alt="wealth-health" className="app-logo" />
+      <div className="app-header-title">
+        <div className="app-header-logo">
+          <img
+            src={Logo}
+            alt="wealth-health"
+            className="app-logo"
+            height={125}
+          />
+        </div>
+        <h1 className={contentTheme}>Wealth health</h1>
       </div>
       <nav className="app-header-nav">
         <ul className="app-nav-items-container">

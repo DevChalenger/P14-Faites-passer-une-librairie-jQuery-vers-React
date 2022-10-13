@@ -44,6 +44,7 @@ function Form() {
 
   const submitForm = (data) => {
     dispatch(createEmployee(data));
+    navigate("/current-employees");
   };
 
   return (

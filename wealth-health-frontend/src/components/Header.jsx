@@ -1,9 +1,9 @@
 import Logo from "../assets/wealth-health-logo.jpg";
 import "../styles/css/header.css";
 import { Link } from "react-router-dom";
-import Theme from "../utils/Theme";
+import useTheme from "../utils/Theme";
 function Header() {
-  const { backgroundTheme, contentTheme } = Theme();
+  const { backgroundTheme, contentTheme } = useTheme();
 
   return (
     <header className={`app-header ${backgroundTheme}`}>

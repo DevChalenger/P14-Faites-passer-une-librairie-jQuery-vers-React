@@ -1,10 +1,10 @@
 import Form from "../components/Form";
 import "../styles/css/newEmployee.css";
-import Theme from "../utils/Theme";
+import useTheme from "../utils/Theme";
 import TitlePage from "../utils/TitlePage";
 
 function NewEmployee() {
-  const { backgroundTheme, contentTheme } = Theme();
+  const { backgroundTheme, contentTheme } = useTheme();
 
   return (
     <main className="new-employee-container main-container">

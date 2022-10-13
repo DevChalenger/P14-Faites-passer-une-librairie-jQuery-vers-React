@@ -32,6 +32,9 @@
   }
   .dark-theme {
     background-color: $Dark-Background;
+    &:nth-child(even) {
+      background-color: $Dark-Background;
+    }
   }
   .dark-content {
     color: $Dark-Content;

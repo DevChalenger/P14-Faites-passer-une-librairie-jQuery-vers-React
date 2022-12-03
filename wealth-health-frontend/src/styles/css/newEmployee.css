@@ -1,4 +1,10 @@
+.new-employee-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .new-employee-container .new-employee-section {
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +33,15 @@
 .new-employee-container .new-employee-section .new-employee-form .information-container .form-control {
   max-width: 180px;
 }
+.new-employee-container .new-employee-section .new-employee-form .information-container .form-control .error {
+  box-shadow: 0 0 7px 1px #ff3333;
+}
+.new-employee-container .new-employee-section .new-employee-form .information-container .form-control p {
+  color: #ff3333;
+  font-size: 14px;
+  margin: 1em 0em;
+  margin-bottom: 0;
+}
 .new-employee-container .new-employee-section .new-employee-form .information-container .form-control button,
 .new-employee-container .new-employee-section .new-employee-form .information-container .form-control .MuiInputBase-root {
   background-color: white;
@@ -42,7 +57,32 @@
 }
 .new-employee-container .new-employee-section .new-employee-form .button-container .button-form {
   background-color: #b1c46c;
+  color: white;
+  font-weight: bold;
   border: 0.5px solid rgba(0, 0, 0, 0.2509803922);
   width: 120px;
   padding: 0.5em 1.5em;
+}
+.new-employee-container .modal-new-employee {
+  z-index: 1;
+  padding: 2em 5em;
+  position: absolute;
+  border-radius: 1em;
+  border: 1px solid #93ad18;
+  opacity: 1;
+  text-align: center;
+  transition: all 1s;
+}
+
+@media screen and (max-width: 600px) {
+  .new-employee-container .new-employee-section .new-employee-form .information-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1.5em 0.5em;
+  }
+  .new-employee-container .new-employee-section .new-employee-form .information-container .form-control {
+    width: 100%;
+  }
 }

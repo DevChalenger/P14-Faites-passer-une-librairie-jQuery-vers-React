@@ -1,4 +1,5 @@
-.current-employee-section {
+.current-employee-container .current-employee-section {
   padding: 10px;
-  max-width: 1192px;
+  width: 100%;
+  max-width: 900px;
 }

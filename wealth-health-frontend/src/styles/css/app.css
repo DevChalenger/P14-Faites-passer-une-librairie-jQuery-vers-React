@@ -11,6 +11,9 @@
   scroll-behavior: smooth;
   background: linear-gradient(180deg, #b1c46c, #93ad18);
 }
+.App p {
+  margin: 0;
+}
 .App .main-container {
   padding: 2em;
   display: flex;
@@ -36,4 +39,12 @@
 }
 .App .dark-content {
   color: #d4d4d4;
+}
+
+@media screen and (max-width: 425px) {
+  .App .main-container {
+    padding: 1em 0.5em;
+    display: flex;
+    justify-content: center;
+  }
 }

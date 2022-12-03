@@ -13,17 +13,21 @@ import "dayjs/locale/fr";
 import stateData from "../__mock__/data_state.json";
 import departmentData from "../__mock__/data_department.json";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { createEmployee } from "../redux/features/actions/employee";
+import { useEffect } from "react";
 
-function Form() {
-  const { register, handleSubmit, reset, control } = useForm();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+const Form = ({ submitForm }) => {
+  const ref = useRef();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+    control,
+  } = useForm();
+
   //Form State
 
   const [selectedDateBirth, setSelectedDateBirth] = useState(dayjs());
@@ -41,11 +45,11 @@ function Form() {
   const handleChangeDateBirth = (value) => {
     setSelectedDateBirth(value);
   };
-
-  const submitForm = (data) => {
-    dispatch(createEmployee(data));
-    navigate("/current-employees");
-  };
+  useEffect(() => {
+    if (errors) {
+      console.log(errors);
+    }
+  });
 
   return (
     <form
@@ -56,26 +60,43 @@ function Form() {
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
         <fieldset className="principal-information information-container">
           <legend>Principal</legend>
-
-          <TextField
-            type="text"
-            label="First Name"
-            size="small"
-            className="form-control"
-            required
-            id="first-name"
-            {...register("firstName")}
-          />
-
-          <TextField
-            type="text"
-            label="Last Name"
-            size="small"
-            className="form-control"
-            required
-            id="last-name"
-            {...register("lastName")}
-          />
+          <FormControl className="form-control">
+            <TextField
+              required
+              type="text"
+              ref={ref}
+              label="First Name"
+              className={errors.firstName ? "error" : ""}
+              size="small"
+              id="first-name"
+              {...register("firstName", {
+                pattern: {
+                  value: /^[a-zA-Z]*$/,
+                  message: "First name must be a string",
+                },
+                required: `Please First Name is required`,
+              })}
+            />
+            {errors.firstName ? <p>{errors.firstName.message}</p> : ""}
+          </FormControl>
+          <FormControl className="form-control">
+            <TextField
+              required
+              type="text"
+              label="Last Name"
+              size="small"
+              className={errors.lastName ? "error" : ""}
+              id="last-name"
+              {...register("lastName", {
+                pattern: {
+                  value: /^[a-zA-Z]*$/,
+                  message: "First name must be a string",
+                },
+                required: `Please First Name is required`,
+              })}
+            />
+            {errors.lastName ? <p>{errors.lastName.message}</p> : ""}
+          </FormControl>
 
           <FormControl className="form-control">
             <DesktopDatePicker
@@ -83,11 +104,11 @@ function Form() {
               onChange={handleChangeDateBirth}
               renderInput={(params) => (
                 <TextField
+                  required
                   {...params}
                   type="text"
                   label="Date of Birth"
                   size="small"
-                  required
                   id="date-of-birth"
                   {...register("dateOfBirth")}
                 />
@@ -105,10 +126,10 @@ function Form() {
               onChange={handleChangeDateStart}
               renderInput={(params) => (
                 <TextField
+                  required
                   {...params}
                   type="text"
                   label="Start Date"
-                  required
                   id="start-date"
                   size="small"
                   {...register("startDate")}
@@ -117,21 +138,27 @@ function Form() {
             />
           </FormControl>
 
-          <FormControl required fullWidth className="form-control">
+          <FormControl fullWidth className="form-control">
             <Controller
               name="department"
               defaultValue=""
               className="form-control"
               control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Please select a department",
+                },
+              }}
               render={({ field }) => (
                 <TextField
+                  required
                   {...field}
                   select
                   size="small"
                   label="Department"
-                  id="departmenet"
-                  className="form-select"
-                  required
+                  id="department"
+                  className={errors.department ? "error" : ""}
                 >
                   {departmentData.map((state) => (
                     <MenuItem value={state.name} key={state.name}>
@@ -141,6 +168,7 @@ function Form() {
                 </TextField>
               )}
             />
+            {errors.department ? <p>{errors.department.message}</p> : ""}
           </FormControl>
         </fieldset>
         {/*Address Section*/}
@@ -149,41 +177,62 @@ function Form() {
 
           <FormControl className="form-control">
             <TextField
+              required
               type="text"
               label="Street"
               size="small"
-              required
+              className={errors.street ? "error" : ""}
               id="street"
-              {...register("street")}
+              {...register("street", {
+                pattern: {
+                  value: /^\d+\s[A-z]+\s[A-z]+$/,
+                  message: "City must be in correct format",
+                },
+                required: `Please The City is required`,
+              })}
             />
+            {errors.street ? <p>{errors.street.message}</p> : ""}
           </FormControl>
 
           <FormControl className="form-control">
             <TextField
+              required
               type="text"
               label="City"
               size="small"
-              required
               id="city"
-              {...register("city")}
+              className={errors.city ? "error" : ""}
+              {...register("city", {
+                pattern: {
+                  value: /^[a-zA-Z ]*$/,
+                  message: "City must be in correct format",
+                },
+                required: `Please The City is required`,
+              })}
             />
+            {errors.city ? <p>{errors.city.message}</p> : ""}
           </FormControl>
           <FormControl className="form-control">
             <Controller
-              required
               name="state"
-              defaultValue=""
               className="form-control"
+              defaultValue=""
               control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Please select a state",
+                },
+              }}
               render={({ field }) => (
                 <TextField
                   {...field}
+                  required
                   select
                   size="small"
                   label="State"
                   id="state"
-                  className="form-select"
-                  required
+                  className={errors.state ? "error" : ""}
                 >
                   {stateData.map((state) => (
                     <MenuItem
@@ -196,17 +245,26 @@ function Form() {
                 </TextField>
               )}
             />
+            {errors.state ? <p>{errors.state.message}</p> : ""}
           </FormControl>
 
           <FormControl className="form-control">
             <TextField
+              required
               type="number"
               label="Zip Code"
-              required
               id="zip-code"
               size="small"
-              {...register("zipCode")}
+              className={errors.zipCode ? "error" : ""}
+              {...register("zipCode", {
+                pattern: {
+                  value: /^[0-9]*$/,
+                  message: "Zip Code must be in correct format",
+                },
+                required: "Zip Code is required ",
+              })}
             />
+            {errors.zipCode ? <p>{errors.zipCode.message}</p> : ""}
           </FormControl>
         </fieldset>
         <Box className="button-container">
@@ -226,6 +284,6 @@ function Form() {
       </LocalizationProvider>
     </form>
   );
-}
+};
 
 export default Form;

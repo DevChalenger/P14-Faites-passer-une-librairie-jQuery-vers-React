@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import About from "./pages/About";
+
 import CurrentEmployees from "./pages/CurrentEmployees";
 import Home from "./pages/Home";
 import NewEmployee from "./pages/NewEmployee";
@@ -24,7 +24,6 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/new-employee" element={<NewEmployee />} />
             <Route path="/current-employees" element={<CurrentEmployees />} />
-            <Route path="/about" element={<About />} />
           </Navigation>
           <Footer />
         </Router>

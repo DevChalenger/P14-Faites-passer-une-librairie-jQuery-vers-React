@@ -54,12 +54,27 @@
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 768px) {
   .app-header {
     justify-content: center;
+    flex-direction: column;
     padding: 0.5em 2em;
     .app-header-nav {
-      width: 100%;
+      gap: 2em;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .app-header {
+    .app-header-title {
+      flex-direction: column-reverse;
+    }
+    .app-header-nav {
+      .app-nav-items-container {
+        align-items: center;
+        flex-direction: column;
+      }
     }
   }
 }

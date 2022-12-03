@@ -2,7 +2,8 @@ import Logo from "../assets/wealth-health-logo.jpg";
 import "../styles/css/header.css";
 import { Link } from "react-router-dom";
 import useTheme from "../utils/Theme";
-function Header() {
+
+const Header = () => {
   const { backgroundTheme, contentTheme } = useTheme();
 
   return (
@@ -14,6 +15,7 @@ function Header() {
             alt="wealth-health"
             className="app-logo"
             height={125}
+            width={"162px"}
           />
         </div>
         <h1 className={contentTheme}>Wealth health</h1>
@@ -41,15 +43,10 @@ function Header() {
               New employee
             </Link>
           </li>
-          <li className="app-nav-item">
-            <Link to="/about" className={`app-nav-item-link ${contentTheme}`}>
-              About
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

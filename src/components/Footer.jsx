@@ -7,7 +7,7 @@ import DarkMode from "@mui/icons-material/Brightness3";
 import LightMode from "@mui/icons-material/LightMode";
 import useTheme from "../utils/Theme";
 
-function Footer() {
+const Footer = () => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const { backgroundTheme, contentTheme } = useTheme();
@@ -24,6 +24,6 @@ function Footer() {
       </IconButton>
     </footer>
   );
-}
+};
 
 export default Footer;

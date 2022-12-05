@@ -1,8 +1,8 @@
-import { Modal } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Form from "../components/Form";
+import Modal from "../components/Modal";
 import { createEmployee } from "../redux/features/actions/employee";
 import "../styles/css/newEmployee.css";
 import useTheme from "../utils/Theme";
@@ -33,15 +33,7 @@ function NewEmployee() {
         <Form submitForm={submitForm} />
       </section>
 
-      {modal ? (
-        <div
-          className={`modal-new-employee ${backgroundTheme} ${contentTheme}`}
-        >
-          <span>New employee is added in the list</span>
-        </div>
-      ) : (
-        ""
-      )}
+      {modal ? <Modal /> : ""}
     </main>
   );
 }

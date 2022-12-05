@@ -251,14 +251,13 @@ const Form = ({ submitForm }) => {
           <FormControl className="form-control">
             <TextField
               required
-              type="number"
               label="Zip Code"
               id="zip-code"
               size="small"
               className={errors.zipCode ? "error" : ""}
               {...register("zipCode", {
                 pattern: {
-                  value: /^[0-9]*$/,
+                  value: /^\d{5}([-]|\s*)?(\d{4})?$/,
                   message: "Zip Code must be in correct format",
                 },
                 required: "Zip Code is required ",

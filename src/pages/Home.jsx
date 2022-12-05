@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import TitlePage from "../utils/TitlePage";
 import Theme from "../utils/Theme";
+
+import "../styles/css/home.css";
+
 function Home() {
   const { backgroundTheme, contentTheme } = Theme();
   return (

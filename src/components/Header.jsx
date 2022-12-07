@@ -15,7 +15,7 @@ const Header = () => {
             alt="wealth-health"
             className="app-logo"
             height={125}
-            width={"162px"}
+            width={162}
           />
         </div>
         <h1 className={contentTheme}>Wealth health</h1>

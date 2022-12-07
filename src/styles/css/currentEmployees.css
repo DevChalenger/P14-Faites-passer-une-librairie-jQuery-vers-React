@@ -3,3 +3,12 @@
   width: 100%;
   max-width: 900px;
 }
+.current-employee-container .current-employee-section .current-employee-switch-button {
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.25em 1em;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+.current-employee-container .current-employee-section .current-employee-switch-button:hover {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}

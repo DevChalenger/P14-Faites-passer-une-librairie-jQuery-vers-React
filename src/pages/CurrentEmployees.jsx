@@ -53,6 +53,7 @@ function CurrentEmployees() {
 
         {data.length ? (
           <button
+            className="current-employee-switch-button"
             onClick={() => (isMocked ? setIsMocked(false) : setIsMocked(true))}
           >
             Show{" "}

@@ -2,7 +2,15 @@
   .current-employee-section {
     padding: 10px;
     width: 100%;
-
     max-width: 900px;
+    .current-employee-switch-button {
+      border: none;
+      border-radius: 0.5em;
+      padding: 0.25em 1em;
+      border: 2px solid rgba($color: #000000, $alpha: 0);
+      &:hover {
+        border: 2px solid rgba($color: #000000, $alpha: 0.5);
+      }
+    }
   }
 }

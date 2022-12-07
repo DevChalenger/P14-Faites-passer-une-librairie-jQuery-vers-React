@@ -1,1 +1,9 @@
-
+.home-container {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.home-container .home-section {
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  text-align: center;
+}

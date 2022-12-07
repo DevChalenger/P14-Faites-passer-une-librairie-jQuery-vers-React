@@ -9,7 +9,7 @@ function Home() {
   return (
     <main className="main-container home-container">
       <TitlePage title="Home" />
-      <section className={`${backgroundTheme} ${contentTheme}`}>
+      <section className={`${backgroundTheme} ${contentTheme} home-section`}>
         <h1>
           Welcome to HRnet! This is our company's internal application to create
           and view employee records.
